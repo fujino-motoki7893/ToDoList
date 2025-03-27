@@ -11,6 +11,13 @@ export default defineNuxtConfig({
     '@nuxt/ui',
   ],
 
+  components: [
+    {
+      path: '~/components/atoms',
+      pathPrefix: false,
+    },
+  ],
+
   devtools: { enabled: true }, compatibilityDate: '2024-11-01',
 
   eslint: {

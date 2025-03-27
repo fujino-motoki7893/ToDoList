@@ -6,6 +6,7 @@
       </template>
 
       The rest of the page
+      <Button />
     </NuxtLayout>
   </div>
 </template>
