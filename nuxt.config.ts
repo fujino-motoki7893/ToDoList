@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
-    '@nuxtjs/tailwindcss',
   ],
 
   devtools: { enabled: true }, compatibilityDate: '2024-11-01',
