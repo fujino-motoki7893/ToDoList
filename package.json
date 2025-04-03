@@ -7,8 +7,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
+  "dev:host": "nuxi dev --hostname '0.0.0.0' --port 3000",
   "dependencies": {
     "@nuxt/content": "3.4.0",
     "@nuxt/eslint": "1.2.0",
@@ -19,8 +21,12 @@
     "@nuxt/test-utils": "3.17.2",
     "@nuxt/ui": "3.0.1",
     "@unhead/vue": "^2.0.0-rc.8",
+    "@vue/apollo-composable": "^4.2.2",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.0.0",
     "nuxt": "^3.16.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.1",
     "typescript": "^5.6.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
@@ -28,6 +34,14 @@
   "packageManager": "pnpm@9.9.0+sha1.3edbe440f4e570aa8f049adbd06b9483d55cc2d2",
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.2",
-    "tailwindcss": "^4.1.2"
+    "tailwindcss": "^4.1.2",
+    "@graphql-codegen/cli": "5.0.5",
+    "@graphql-codegen/client-preset": "4.8.0",
+    "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-msw": "^3.0.0",
+    "@graphql-codegen/typescript-operations": "^4.6.0",
+    "@graphql-codegen/typescript-vue-apollo": "^4.1.1",
+    "@nuxtjs/apollo": "5.0.0-alpha.14"
   }
 }

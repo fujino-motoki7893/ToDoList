@@ -10,3 +10,13 @@
     </TableRowWrapper>
   </div>
 </template>
+
+<script setup lang="ts">
+const query = Document
+const variables = { limit: 5 }
+
+onMounted(async () => {
+  const { data } = await useAsyncQuery(query, variables)
+  console.log(data)
+})
+</script>

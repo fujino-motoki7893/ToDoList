@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
+    '@nuxtjs/apollo',
   ],
 
   components: [
@@ -31,6 +32,18 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
+
+  compatibilityDate: '2024-11-01',
+
+  apollo: {
+    clients: {
+      default: './graphql/apollo/clients/default.ts',
+    },
 
   eslint: {
     config: {
