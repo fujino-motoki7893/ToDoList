@@ -5,7 +5,13 @@
         Some header template content.
       </template>
 
-      The rest of the page
+      題名
+      <InputField />
+      内容
+      <InputField />
+      <Button
+        button-text="追加"
+      />
     </NuxtLayout>
   </div>
 </template>
