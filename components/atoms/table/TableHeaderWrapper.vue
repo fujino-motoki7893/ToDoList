@@ -1,7 +1,7 @@
 <template>
-  <tr class="header">
+  <div class="header">
     <slot />
-  </tr>
+  </div>
 </template>
 
 <style scoped>
