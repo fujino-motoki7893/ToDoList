@@ -9,7 +9,9 @@
       <InputField />
       内容
       <InputField />
-      <Button />
+      <Button
+        button-text="追加"
+      />
     </NuxtLayout>
   </div>
 </template>
