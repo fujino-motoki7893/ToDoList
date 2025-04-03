@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <TableHeaderWrapper>
+      ItemListのヘッダーです。
+    </TableHeaderWrapper>
+    <TableRowWrapper>
+      ItemListの内容です。
+    </TableRowWrapper>
+  </div>
+</template>
