@@ -1,6 +1,8 @@
 <template>
   <div>
-    <TableHeaderWrapper>
+    <TableHeaderWrapper
+      class="bg-gray-200 p-4 text-lg font-bold"
+    >
       ItemListのヘッダーです。
     </TableHeaderWrapper>
     <TableRowWrapper>

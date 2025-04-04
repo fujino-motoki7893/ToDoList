@@ -1,5 +1,6 @@
 <template>
   <button
+    class="text-3xl font-bold underline"
     :disabled="props.isDisabled"
     @click="emits('onClick')"
   >

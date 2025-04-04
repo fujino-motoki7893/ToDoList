@@ -1,7 +1,6 @@
 <template>
   <div
     v-if="props.type === 'number'"
-    class="input-wrapper"
   >
     <input
       v-model="model"
@@ -14,6 +13,7 @@
   <input
     v-else-if="!props.isTextArea"
     v-model="model"
+    class="text-3xl font-bold bg-gray-200"
     :type="props.type"
     :placeholder="placeholder"
     :disabled="props.isDisabled"
