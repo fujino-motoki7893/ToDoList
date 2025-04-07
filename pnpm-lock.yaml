@@ -37,7 +37,7 @@ importers:
         version: 2.0.1(vue@3.5.13(typescript@5.8.2))
       '@vue/apollo-composable':
         specifier: ^4.2.2
-        version: 4.2.2(@apollo/client@3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
+        version: 4.2.2(@apollo/client@3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.3)
@@ -52,7 +52,7 @@ importers:
         version: 8.5.3
       tailwindcss:
         specifier: ^4.1.1
-        version: 4.1.1
+        version: 4.1.2
       typescript:
         specifier: ^5.6.3
         version: 5.8.2
@@ -63,12 +63,6 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
     devDependencies:
-      '@tailwindcss/vite':
-        specifier: ^4.1.2
-        version: 4.1.2(vite@6.2.3(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
-      tailwindcss:
-        specifier: ^4.1.2
-        version: 4.1.2
       '@graphql-codegen/cli':
         specifier: 5.0.5
         version: 5.0.5(@parcel/watcher@2.5.1)(@types/node@22.14.0)(graphql-sock@1.0.1(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)
@@ -93,6 +87,9 @@ importers:
       '@nuxtjs/apollo':
         specifier: 5.0.0-alpha.14
         version: 5.0.0-alpha.14(magicast@0.3.5)(rollup@4.37.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
+      '@tailwindcss/vite':
+        specifier: ^4.1.2
+        version: 4.1.2(vite@6.2.3(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
 
 packages:
 
@@ -114,8 +111,8 @@ packages:
     resolution: {integrity: sha512-60vepv88RwcJtSHrD6MjIL6Ta3SOYbgfnkHb+ppAVK+o9mXprRtulx7VlRl3lN3bbvysAfCS7WMVfhUYemB0IQ==}
     engines: {node: '>= 16'}
 
-  '@apollo/client@3.13.5':
-    resolution: {integrity: sha512-ceHa1lApLAiGmUur4V+G/CrjwVwHYujfB7U5HM++poCgHpfGn6eet8YGM93fgeWjYX85SaqwdZbQk18IVwhRHg==}
+  '@apollo/client@3.13.6':
+    resolution: {integrity: sha512-G6A8uNb13V/Tv4TJQOs5PnxuE5Rf5D2dMnBQcg9mng1Eo4YBecwFEJ0L022mraq/dLB0jD5tiAESOD2bTyJ6gg==}
     peerDependencies:
       graphql: ^15.0.0 || ^16.0.0
       graphql-ws: ^5.5.5 || ^6.0.3
@@ -1003,8 +1000,8 @@ packages:
     peerDependencies:
       vue: '>=3'
 
-  '@inquirer/confirm@5.1.8':
-    resolution: {integrity: sha512-dNLWCYZvXDjO3rnQfk2iuJNL4Ivwz/T2+C3+WnNfJKsNGSuOs3wAo2F6e0p946gtSAk31nZMfW+MRmYaplPKsg==}
+  '@inquirer/confirm@5.1.9':
+    resolution: {integrity: sha512-NgQCnHqFTjF7Ys2fsqK2WtnA8X1kHyInyG+nMIuHowVTIgIuS10T4AznI/PvbqSpJqjCUqNBlKGh1v3bwLFL4w==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -1012,8 +1009,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/core@10.1.9':
-    resolution: {integrity: sha512-sXhVB8n20NYkUBfDYgizGHlpRVaCRjtuzNZA6xpALIUbkgfd2Hjz+DfEN6+h1BRnuxw0/P4jCIMjMsEOAMwAJw==}
+  '@inquirer/core@10.1.10':
+    resolution: {integrity: sha512-roDaKeY1PYY0aCqhRmXihrHjoSW2A00pV3Ke5fTpMCkzcGF64R8e0lw3dK+eLEHwS4vB5RnW1wuQmvzoRul8Mw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -1025,8 +1022,8 @@ packages:
     resolution: {integrity: sha512-eOg92lvrn/aRUqbxRyvpEWnrvRuTYRifixHkYVpJiygTgVSBIHDqLh0SrMQXkafvULg3ck11V7xvR+zcgvpHFw==}
     engines: {node: '>=18'}
 
-  '@inquirer/type@3.0.5':
-    resolution: {integrity: sha512-ZJpeIYYueOz/i/ONzrfof8g89kNdO2hjGuvULROo3O8rlB2CRtSseE5KeirnyE4t/thAn/EwvS/vuQeJCn+NZg==}
+  '@inquirer/type@3.0.6':
+    resolution: {integrity: sha512-/mKVCtVpyBu3IDarv0G+59KC4stsD5mDsGpYh+GKs1NZT88Jh52+cuoA1AtLk2Q0r/quNl+1cSUyLRHBFeD0XA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -6476,7 +6473,7 @@ snapshots:
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.0
 
-  '@apollo/client@3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)':
+  '@apollo/client@3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.10.0)
       '@wry/caches': 1.0.1
@@ -7697,17 +7694,17 @@ snapshots:
       '@iconify/types': 2.0.0
       vue: 3.5.13(typescript@5.8.2)
 
-  '@inquirer/confirm@5.1.8(@types/node@22.14.0)':
+  '@inquirer/confirm@5.1.9(@types/node@22.14.0)':
     dependencies:
-      '@inquirer/core': 10.1.9(@types/node@22.14.0)
-      '@inquirer/type': 3.0.5(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.14.0)
+      '@inquirer/type': 3.0.6(@types/node@22.14.0)
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/core@10.1.9(@types/node@22.14.0)':
+  '@inquirer/core@10.1.10(@types/node@22.14.0)':
     dependencies:
       '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.5(@types/node@22.14.0)
+      '@inquirer/type': 3.0.6(@types/node@22.14.0)
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
       mute-stream: 2.0.0
@@ -7719,7 +7716,7 @@ snapshots:
 
   '@inquirer/figures@1.0.11': {}
 
-  '@inquirer/type@3.0.5(@types/node@22.14.0)':
+  '@inquirer/type@3.0.6(@types/node@22.14.0)':
     optionalDependencies:
       '@types/node': 22.14.0
 
@@ -8297,7 +8294,7 @@ snapshots:
       '@nuxt/schema': 3.16.1
       '@nuxtjs/color-mode': 3.5.2(magicast@0.3.5)
       '@tailwindcss/postcss': 4.0.16
-      '@tailwindcss/vite': 4.1.2(vite@6.2.3(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
+      '@tailwindcss/vite': 4.1.2(vite@6.2.3(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
       '@tanstack/vue-table': 8.21.2(vue@3.5.13(typescript@5.8.2))
       '@unhead/vue': 2.0.1(vue@3.5.13(typescript@5.8.2))
       '@vueuse/core': 13.0.0(vue@3.5.13(typescript@5.8.2))
@@ -8430,11 +8427,11 @@ snapshots:
 
   '@nuxtjs/apollo@5.0.0-alpha.14(magicast@0.3.5)(rollup@4.37.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))':
     dependencies:
-      '@apollo/client': 3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)
+      '@apollo/client': 3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)
       '@nuxt/kit': 3.16.1(magicast@0.3.5)
       '@rollup/plugin-graphql': 2.0.5(graphql@16.10.0)(rollup@4.37.0)
-      '@vue/apollo-composable': 4.2.2(@apollo/client@3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
-      '@vue/apollo-option': 4.2.2(@apollo/client@3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(vue@3.5.13(typescript@5.8.2))
+      '@vue/apollo-composable': 4.2.2(@apollo/client@3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
+      '@vue/apollo-option': 4.2.2(@apollo/client@3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(vue@3.5.13(typescript@5.8.2))
       defu: 6.1.4
       destr: 2.0.3
       graphql: 16.10.0
@@ -8979,12 +8976,12 @@ snapshots:
       postcss: 8.5.3
       tailwindcss: 4.0.16
 
-  '@tailwindcss/vite@4.1.2(vite@6.2.3(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))':
+  '@tailwindcss/vite@4.1.2(vite@6.2.3(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
       '@tailwindcss/node': 4.1.2
       '@tailwindcss/oxide': 4.1.2
       tailwindcss: 4.1.2
-      vite: 6.2.3(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
+      vite: 6.2.3(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
 
   '@tanstack/table-core@8.21.2': {}
 
@@ -9248,9 +9245,9 @@ snapshots:
     optionalDependencies:
       vue: 3.5.13(typescript@5.8.2)
 
-  '@vue/apollo-composable@4.2.2(@apollo/client@3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))':
+  '@vue/apollo-composable@4.2.2(@apollo/client@3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(graphql@16.10.0)(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))':
     dependencies:
-      '@apollo/client': 3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)
+      '@apollo/client': 3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)
       graphql: 16.10.0
       throttle-debounce: 5.0.2
       ts-essentials: 9.4.2(typescript@5.8.2)
@@ -9259,9 +9256,9 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@vue/apollo-option@4.2.2(@apollo/client@3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(vue@3.5.13(typescript@5.8.2))':
+  '@vue/apollo-option@4.2.2(@apollo/client@3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0))(vue@3.5.13(typescript@5.8.2))':
     dependencies:
-      '@apollo/client': 3.13.5(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)
+      '@apollo/client': 3.13.6(graphql-ws@5.16.2(graphql@16.10.0))(graphql@16.10.0)
       throttle-debounce: 5.0.2
       vue: 3.5.13(typescript@5.8.2)
 
@@ -12016,7 +12013,7 @@ snapshots:
       '@bundled-es-modules/cookie': 2.0.1
       '@bundled-es-modules/statuses': 1.0.1
       '@bundled-es-modules/tough-cookie': 0.1.6
-      '@inquirer/confirm': 5.1.8(@types/node@22.14.0)
+      '@inquirer/confirm': 5.1.9(@types/node@22.14.0)
       '@mswjs/interceptors': 0.37.6
       '@open-draft/deferred-promise': 2.2.0
       '@open-draft/until': 2.1.0
