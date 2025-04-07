@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
+    '@nuxtjs/apollo',
   ],
 
   components: [
@@ -24,12 +25,32 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
+
   compatibilityDate: '2024-11-01',
+
+  nitro: {
+    devProxy: {
+      '/graphql': {
+        target: 'http://localhost:5142/graphql',
+        changeOrigin: true,
+      },
+    },
+  },
 
   vite: {
     plugins: [
       tailwindcss(),
     ],
+  },
+
+  apollo: {
+    clients: {
+      default: './graphql/apollo/clients/default.ts',
+    },
   },
 
   eslint: {
