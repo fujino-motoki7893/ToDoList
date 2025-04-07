@@ -1,5 +1,4 @@
 {
-  "name": "nuxt-app",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +7,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "pnpm codegen:namedo && pnpm codegen:promisequery && pnpm codegen:types && pnpm codegen:functions && pnpm codegen:introspection",
+    "codegen:types": "graphql-codegen --config ./graphql/codegen/configs/types.ts",
+    "codegen:functions": "graphql-codegen --config ./graphql/codegen/configs/functions.ts",
+    "codegen:namedo": "graphql-codegen --config ./graphql/codegen/configs/named-operations-object.ts",
+    "codegen:promisequery": "graphql-codegen --config ./graphql/codegen/configs/promise-query.ts",
+    "codegen:introspection": "graphql-codegen --config ./graphql/codegen/configs/introspection.ts",
+    "codegen:all": "pnpm codegen:namedo && pnpm codegen:promisequery && pnpm codegen:types && pnpm codegen:functions && pnpm codegen:introspection",
+    "codegen:verbose": "pnpm codegen:namedo --verbose && pnpm codegen:types --verbose && pnpm codegen:functions --verbose"
   },
   "dev:host": "nuxi dev --hostname '0.0.0.0' --port 3000",
   "dependencies": {
@@ -33,15 +39,21 @@
   },
   "packageManager": "pnpm@9.9.0+sha1.3edbe440f4e570aa8f049adbd06b9483d55cc2d2",
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.2",
-    "tailwindcss": "^4.1.2",
+    "@graphql-codegen/add": "^5.0.3",
     "@graphql-codegen/cli": "5.0.5",
     "@graphql-codegen/client-preset": "4.8.0",
+    "@graphql-codegen/import-types-preset": "^3.0.0",
     "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/named-operations-object": "^3.1.0",
+    "@graphql-codegen/plugin-helpers": "^5.1.0",
     "@graphql-codegen/typescript": "^4.1.6",
     "@graphql-codegen/typescript-msw": "^3.0.0",
     "@graphql-codegen/typescript-operations": "^4.6.0",
     "@graphql-codegen/typescript-vue-apollo": "^4.1.1",
-    "@nuxtjs/apollo": "5.0.0-alpha.14"
+    "@nuxtjs/apollo": "5.0.0-alpha.14",
+    "@tailwindcss/vite": "^4.1.2",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "tailwindcss": "^4.1.2"
   }
 }

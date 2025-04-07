@@ -1,4 +1,5 @@
 import { defineApolloClient } from '@nuxtjs/apollo/config'
+import { refetchQueriesResolver } from '../configs/refetchQueries'
 
 export default defineApolloClient({
   httpEndpoint: process.env.NUXT_PUBLIC_BACKEND_DOMAIN || '',
@@ -8,6 +9,9 @@ export default defineApolloClient({
     },
     query: {
       fetchPolicy: 'network-only',
+    },
+    mutate: {
+      refetchQueries: refetchQueriesResolver,
     },
   },
 })
