@@ -1,8 +1,12 @@
 import type { CodegenConfig } from '@graphql-codegen/cli'
+import * as dotenv from 'dotenv'
+
+// .envファイルを読み込む
+dotenv.config()
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: 'http://localhost:5142/graphql/',
+  schema: process.env.NUXT_PUBLIC_BACKEND_DOMAIN || '',
   documents: './graphql/**/*.graphql',
   generates: {
     './graphql/generated/graphql.ts': {
