@@ -1,0 +1,11 @@
+# Node.jsモジュールを除外
+node_modules
+node_modules/**
+
+# ビルドディレクトリを除外（Dockerfile内で再ビルドされるため）
+dist
+dist/**
+
+# その他のキャッシュやビルドアーティファクトを除外
+.cache
+.nuxt
