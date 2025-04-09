@@ -73,3 +73,12 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Dockerで立ち上げる方法
+```bash
+# build
+docker build -t to-do-list-frontend .
+
+# run
+docker run -d -p 3000:3000 --name to-do-list-frontend to-do-list-frontend
+```
