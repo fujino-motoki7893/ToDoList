@@ -1,14 +1,9 @@
 <template>
-  <div class="row">
+  <div class="border-b border-gray-200 last:border-b-0">
     <slot />
   </div>
 </template>
 
-<style scoped>
-.row {
-  box-sizing: border-box;
-  min-height: 44px;
-  display: flex;
-  align-items: stretch;
-}
-</style>
+<script setup lang="ts">
+// 必要に応じてロジックを追加
+</script>
