@@ -1,8 +1,6 @@
 <template>
   <div class="bg-white rounded-lg shadow overflow-hidden">
-    <TableHeaderWrapper class="bg-indigo-600 p-4 text-lg font-bold text-white">
-      ToDoList
-    </TableHeaderWrapper>
+    <TableHeaderWrapper class="bg-indigo-600 p-4 text-lg font-bold text-white" />
 
     <div
       v-if="items.length === 0"
