@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
     <h1 class="text-2xl font-bold text-center mb-6 text-indigo-600">
-      アイテム管理
+      ToDoList
     </h1>
 
     <ItemList class="mb-8" />
