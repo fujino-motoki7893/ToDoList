@@ -2,7 +2,7 @@
   <div class="bg-gray-100 rounded-t-lg p-4 flex items-center justify-between">
     <div class="flex items-center">
       <h2 class="text-lg font-bold text-gray-800">
-        <slot />
+        あなたに必要なタスクを見つける
       </h2>
     </div>
     <div class="flex items-center space-x-2">
@@ -11,7 +11,7 @@
         title="リストを更新"
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg  "
+          xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
@@ -62,6 +62,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// ヘッダーに関する追加のロジックがあれば、ここに追加
-</script>
+<script setup lang="ts"></script>
