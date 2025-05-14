@@ -30,5 +30,5 @@
 </template>
 
 <script setup lang="ts">
-import ItemList from '~/components/organisms/ItemList.vue'
+import ItemList from '~/components/layouts/ItemList.vue'
 </script>
