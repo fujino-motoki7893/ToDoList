@@ -78,6 +78,36 @@ const useItemListState = () => {
     item.isEditing = false
   }
 
+  /**
+ * 新しいアイテムを追加する関数
+ *
+ * @param {string} name - 追加するアイテムの名前
+ * @param {string} content - 追加するアイテムの内容
+ * @example
+ * // 新しいアイテムを追加
+ * addItem('新しいタスク', 'タスクの詳細');
+ */
+  const addItem = (name: string, content: string) => {
+  // 新しいIDを生成（既存の最大ID + 1）
+    const newId = items.value.length > 0
+      ? Math.max(...items.value.map(item => item.id)) + 1
+      : 1
+
+    // 新しいアイテムを作成
+    const newItem = {
+      id: newId,
+      name,
+      content,
+      completed: false,
+      isEditing: false,
+      editName: name,
+      editContent: content,
+    }
+
+    // アイテムリストに追加
+    items.value.push(newItem)
+  }
+
   return {
     itemList,
     items,
@@ -85,6 +115,7 @@ const useItemListState = () => {
     startEditing,
     saveEditing,
     cancelEditing,
+    addItem,
   }
 }
 
