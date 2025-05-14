@@ -31,4 +31,7 @@
 
 <script setup lang="ts">
 import ItemList from '~/components/layouts/ItemList.vue'
+import { provideItemList } from '~/composables/domains/itemList'
+
+provideItemList()
 </script>
