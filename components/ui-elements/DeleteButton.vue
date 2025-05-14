@@ -1,11 +1,17 @@
 <template>
-  <button class="p-1 text-gray-500 hover:text-red-600 transition-colors">
+  <button
+    class="p-1 text-gray-500 hover:text-red-600 transition-colors"
+    aria-label="削除"
+    @click="$emit('delete')"
+  >
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5"
+      xmlns="http://www.w3.org/2000/svg "
+      class="h-5 w-5 icon"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
+      aria-hidden="true"
+      focusable="false"
     >
       <path
         stroke-linecap="round"
@@ -17,3 +23,7 @@
     </svg>
   </button>
 </template>
+
+<script setup lang="ts">
+defineEmits(['delete'])
+</script>
