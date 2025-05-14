@@ -15,7 +15,10 @@
     >
       <div class="flex items-center justify-between p-4 border-b border-gray-200">
         <div class="flex items-center space-x-3 w-full">
-          <CheckBox v-model="item.completed" />
+          <CheckBox
+            v-if="!item.isEditing"
+            v-model="item.completed"
+          />
           <div
             v-if="!item.isEditing"
             class="flex flex-col sm:flex-row sm:items-center w-full"
