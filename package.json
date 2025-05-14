@@ -24,6 +24,7 @@
     "@vue/apollo-composable": "^4.2.2",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.0.0",
+    "jsdoc": "^4.0.4",
     "nuxt": "^3.16.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.1",
@@ -33,8 +34,6 @@
   },
   "packageManager": "pnpm@9.9.0+sha1.3edbe440f4e570aa8f049adbd06b9483d55cc2d2",
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.2",
-    "tailwindcss": "^4.1.2",
     "@graphql-codegen/cli": "5.0.5",
     "@graphql-codegen/client-preset": "4.8.0",
     "@graphql-codegen/introspection": "4.0.3",
@@ -42,6 +41,8 @@
     "@graphql-codegen/typescript-msw": "^3.0.0",
     "@graphql-codegen/typescript-operations": "^4.6.0",
     "@graphql-codegen/typescript-vue-apollo": "^4.1.1",
-    "@nuxtjs/apollo": "5.0.0-alpha.14"
+    "@nuxtjs/apollo": "5.0.0-alpha.14",
+    "@tailwindcss/vite": "^4.1.2",
+    "tailwindcss": "^4.1.2"
   }
 }
