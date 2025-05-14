@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
   components: [
     {
-      path: '~/components/atoms',
+      path: '~/components',
       pathPrefix: false,
     },
   ],
