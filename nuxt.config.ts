@@ -33,12 +33,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
 
   nitro: {
+    preset: 'github_pages',
     devProxy: {
       '/graphql': {
         target: 'http://localhost:5142/graphql',
         changeOrigin: true,
       },
     },
+  },
+
+  app: {
+    baseURL: '/to-do-list/', // リポジトリ名に変更
+    buildAssetsDir: 'assets/'
   },
 
   vite: {
