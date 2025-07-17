@@ -1,4 +1,5 @@
-import type { Item } from '~/graphql/generated/graphql'
+import { useApi } from '../useApi'
+import type { ReadTodoPayload, TodoItemDto } from '~/graphql/generated/graphql'
 import { mockData } from '@/repositories/domains/getItems'
 
 /**
@@ -7,8 +8,30 @@ import { mockData } from '@/repositories/domains/getItems'
  * @returns アイテムリストの状態と操作メソッドを含むオブジェクト
  */
 const useItemListState = () => {
-  /** 元のアイテムリスト */
-  const itemList = ref<Item[]>(mockData)
+  const api = useApi()
+
+  const itemList = ref<TodoItemDto[]>([])
+  const loading = ref(false)
+  const error = ref<string | null>(null)
+
+  // READ: アイテム一覧取得
+  const fetchItems = async () => {
+    loading.value = true
+    error.value = null
+
+    try {
+      const response = await api.get<ReadTodoPayload>('http://localhost:5142/api/Todo', {})
+      itemList.value = response.items
+      return response
+    }
+    catch (err: any) {
+      error.value = err.message
+      throw err
+    }
+    finally {
+      loading.value = false
+    }
+  }
 
   /**
    * モックデータに編集状態と編集用フィールドを追加したアイテムリスト
@@ -116,6 +139,7 @@ const useItemListState = () => {
     saveEditing,
     cancelEditing,
     addItem,
+    fetchItems,
   }
 }
 

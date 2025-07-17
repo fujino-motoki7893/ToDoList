@@ -8,6 +8,13 @@
       タスクがありません。新しいタスクを追加してください。
     </div>
 
+    <!--
+        <TableRowWrapper
+      v-for="item in itemList"
+      :key="item.id"
+      class="hover:bg-indigo-50 transition-colors duration-150"
+    >
+    -->
     <TableRowWrapper
       v-for="item in items"
       :key="item.id"
@@ -118,5 +125,11 @@ const {
   startEditing,
   saveEditing,
   cancelEditing,
+  fetchItems,
+  // itemList,
 } = injectItemList()
+
+onMounted(async () => {
+  await fetchItems()
+})
 </script>
