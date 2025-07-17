@@ -1,7 +1,9 @@
 query {
-  items {
-    content
-    id
-    name
+  get {
+    items {
+      content
+      id
+      name
+    }
   }
 }

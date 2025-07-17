@@ -26,13 +26,6 @@ export type AddItemPayload = {
   item: ItemDto;
 };
 
-export type Item = {
-  __typename?: 'Item';
-  content?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-};
-
 export type ItemDto = {
   __typename?: 'ItemDTO';
   content?: Maybe<Scalars['String']['output']>;
@@ -52,21 +45,35 @@ export type MutationAddItemArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  items: Array<Item>;
+  get: ReadTodoPayload;
+};
+
+export type ReadTodoPayload = {
+  __typename?: 'ReadTodoPayload';
+  items: Array<TodoItemDto>;
+};
+
+export type TodoItemDto = {
+  __typename?: 'TodoItemDto';
+  content?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
 };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { __typename?: 'Query', items: Array<{ __typename?: 'Item', content?: string | null, id: number, name?: string | null }> };
+export type Unnamed_1_Query = { __typename?: 'Query', get: { __typename?: 'ReadTodoPayload', items: Array<{ __typename?: 'TodoItemDto', content?: string | null, id: number, name?: string | null }> } };
 
 
 export const Document = gql`
     {
-  items {
-    content
-    id
-    name
+  get {
+    items {
+      content
+      id
+      name
+    }
   }
 }
     `;
