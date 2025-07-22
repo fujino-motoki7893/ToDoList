@@ -1,8 +1,7 @@
 <template>
   <div class="flex justify-center">
     <img
-      :src="profileImage"
-      alt="藤野元規"
+      src="/images/think_fujino_edit.jpg"
     >
   </div>
   <!-- TODO: 使用していないTodoリスト関連削除する -->
@@ -35,7 +34,3 @@
     </span>
   </div>
 </template>
-
-<script setup>
-import profileImage from '~/assets/image/think_fujino_edit.jpg'
-</script>
