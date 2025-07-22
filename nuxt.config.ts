@@ -23,6 +23,11 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  app: {
+    baseURL: '/portfolio/',
+    buildAssetsDir: 'assets/',
+  },
+
   css: ['~/assets/css/main.css'],
 
   // devServer: {
@@ -40,11 +45,6 @@ export default defineNuxtConfig({
         changeOrigin: true,
       },
     },
-  },
-
-  app: {
-    baseURL: '/to-do-list/', // リポジトリ名に変更
-    buildAssetsDir: 'assets/'
   },
 
   vite: {
