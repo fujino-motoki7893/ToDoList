@@ -11,7 +11,6 @@
         >HOME</a>
         <a class="w-[1px] h-[24px] x-6 bg-gray-300 absolute mx-[-24px] my-[4px]" />
         <a
-          href="/about"
           class="hover:text-blue-600"
         >ABOUT ME</a>
       </nav>
