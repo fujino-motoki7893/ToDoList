@@ -25,7 +25,6 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/portfolio/',
-    buildAssetsDir: 'assets/',
   },
 
   css: ['~/assets/css/main.css'],
@@ -51,6 +50,7 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif'],
   },
 
   apollo: {
@@ -63,9 +63,5 @@ export default defineNuxtConfig({
     config: {
       stylistic: true,
     },
-  },
-
-  image: {
-    dir: 'assets/images',
   },
 })
