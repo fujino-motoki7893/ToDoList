@@ -1,9 +1,14 @@
 <template>
   <div class="flex justify-center">
     <img
-      src="/images/think_fujino_edit.jpg"
+      v-if="profileImage"
+      :src="profileImage"
       alt="藤野元規"
     >
+    <div
+      v-else
+      class="animate-pulse bg-gray-300 w-32 h-32 rounded"
+    />
   </div>
   <!-- TODO: 使用していないTodoリスト関連削除する -->
   <div class="justify-center flex py-16">
@@ -35,3 +40,18 @@
     </span>
   </div>
 </template>
+
+<script setup>
+const profileImage = ref(null)
+
+onMounted(async () => {
+  try {
+    const imageModule = await import('~/assets/images/think_fujino_edit.jpg')
+    profileImage.value = imageModule.default
+  }
+  catch (error) {
+    console.error('画像の読み込みに失敗:', error)
+    profileImage.value = '/images/fallback-avatar.jpg'
+  }
+})
+</script>
