@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-center">
-    <img
-      :src="profileImage"
+    <NuxtImg
+      src="/images/thinkfujino.jpg"
       alt="藤野元規"
-    >
+    />
   </div>
   <!-- TODO: 使用していないTodoリスト関連削除する -->
   <div class="justify-center flex py-16">
@@ -35,7 +35,3 @@
     </span>
   </div>
 </template>
-
-<script setup>
-const profileImage = await import('~/assets/images/think_fujino_edit.jpg').then(m => m.default)
-</script>
