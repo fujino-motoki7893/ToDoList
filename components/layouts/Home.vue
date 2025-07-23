@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center">
     <img
-      :src="profileImage"
+      src="/images/think_fujino_edit.jpg"
       alt="藤野元規"
     >
   </div>
@@ -35,7 +35,3 @@
     </span>
   </div>
 </template>
-
-<script setup>
-import profileImage from '~/assets/images/think_fujino_edit.jpg'
-</script>
