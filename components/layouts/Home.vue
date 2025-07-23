@@ -1,14 +1,10 @@
 <template>
   <div class="flex justify-center">
     <img
-      v-if="profileImage"
       :src="profileImage"
       alt="藤野元規"
+      class="max-w-full h-auto"
     >
-    <div
-      v-else
-      class="animate-pulse bg-gray-300 w-32 h-32 rounded"
-    />
   </div>
   <!-- TODO: 使用していないTodoリスト関連削除する -->
   <div class="justify-center flex py-16">
@@ -42,16 +38,13 @@
 </template>
 
 <script setup>
-const profileImage = ref(null)
+// 方法1: 動的インポート
+const profileImage = await import('@/assets/images/think_fujino_edit.jpg').then(m => m.default)
 
-onMounted(async () => {
-  try {
-    const imageModule = await import('~/assets/images/think_fujino_edit.jpg')
-    profileImage.value = imageModule.default
-  }
-  catch (error) {
-    console.error('画像の読み込みに失敗:', error)
-    profileImage.value = '/images/fallback-avatar.jpg'
-  }
-})
+// 方法2: publicディレクトリを使用（推奨）
+// const profileImage = '/images/think_fujino_edit.jpg'
+
+// 方法3: useAssets composable（Nuxt 3）
+// const { $img } = useNuxtApp()
+// const profileImage = $img('~/assets/images/think_fujino_edit.jpg')
 </script>

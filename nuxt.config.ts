@@ -50,7 +50,6 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
-    assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif'],
   },
 
   apollo: {
