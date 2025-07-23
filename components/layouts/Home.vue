@@ -1,8 +1,10 @@
 <template>
   <div class="flex justify-center">
     <NuxtImg
-      src="/thinkfujino.jpg"
+      provider="s3"
+      src="/images/think_fujino_edit.jpg"
       alt="藤野元規"
+      class="w-[1280px] h-[634px]"
     />
   </div>
   <!-- TODO: 使用していないTodoリスト関連削除する -->
