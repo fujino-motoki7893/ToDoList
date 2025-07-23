@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center">
     <NuxtImg
-      src="/images/thinkfujino.jpg"
+      src="./images/thinkfujino.jpg"
       alt="藤野元規"
     />
   </div>
