@@ -25,10 +25,21 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/portfolio/',
-    buildAssetsDir: 'assets/',
   },
 
   css: ['~/assets/css/main.css'],
+
+  runtimeConfig: {
+    // サーバーサイド用（秘密情報）
+    awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+
+    public: {
+      // クライアントサイド用（公開情報）
+      s3BucketUrl: process.env.S3_BUCKET_URL || 'https://my-portfolio-images-prod.s3.amazonaws.com',
+      s3Region: process.env.AWS_REGION || 'ap-northeast-1',
+    },
+  },
 
   // devServer: {
   //   host: '0.0.0.0',
@@ -66,6 +77,33 @@ export default defineNuxtConfig({
   },
 
   image: {
-    dir: 'assets/images',
+    providers: {
+      s3: {
+        name: 's3',
+        provider: '~/providers/s3-provider.ts',
+        options: {
+          baseURL: 'https://my-portfolio-images-prod.s3.amazonaws.com',
+        },
+      },
+    },
+
+    // S3をデフォルトプロバイダーに設定
+    provider: 's3',
+
+    // 画像の最適化設定
+    format: ['webp', 'jpg'],
+    quality: 80,
+
+    // プリセット設定
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 300,
+          height: 300,
+          quality: 80,
+        },
+      },
+    },
   },
 })
