@@ -29,6 +29,13 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // アセットディレクトリの明示的な指定
+  dir: {
+    assets: 'assets',
+    static: 'static',
+    public: 'public',
+  },
+
   // devServer: {
   //   host: '0.0.0.0',
   //   port: 3000,
@@ -44,12 +51,23 @@ export default defineNuxtConfig({
         changeOrigin: true,
       },
     },
+    publicAssets: [
+      {
+        baseURL: '/assets',
+        dir: 'assets',
+        maxAge: 60 * 60 * 24 * 365, // 1年
+      },
+    ],
   },
 
   vite: {
     plugins: [
       tailwindcss(),
     ],
+    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
+    build: {
+      assetsDir: 'assets',
+    },
   },
 
   apollo: {

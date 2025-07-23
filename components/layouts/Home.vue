@@ -3,7 +3,6 @@
     <img
       :src="profileImage"
       alt="藤野元規"
-      class="max-w-full h-auto"
     >
   </div>
   <!-- TODO: 使用していないTodoリスト関連削除する -->
@@ -38,13 +37,5 @@
 </template>
 
 <script setup>
-// 方法1: 動的インポート
-const profileImage = await import('@/assets/images/think_fujino_edit.jpg').then(m => m.default)
-
-// 方法2: publicディレクトリを使用（推奨）
-// const profileImage = '/images/think_fujino_edit.jpg'
-
-// 方法3: useAssets composable（Nuxt 3）
-// const { $img } = useNuxtApp()
-// const profileImage = $img('~/assets/images/think_fujino_edit.jpg')
+const profileImage = await import('~/assets/images/think_fujino_edit.jpg').then(m => m.default)
 </script>
