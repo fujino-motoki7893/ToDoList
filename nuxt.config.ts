@@ -37,6 +37,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
 
   nitro: {
+    publicAssets: [
+      {
+        baseURL: '/images',
+        dir: 'public/images',
+      },
+    ],
     preset: 'github_pages',
     devProxy: {
       '/graphql': {
