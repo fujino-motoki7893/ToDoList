@@ -12,6 +12,7 @@
   },
   "dev:host": "nuxi dev --hostname '0.0.0.0' --port 3000",
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@nuxt/content": "3.4.0",
     "@nuxt/eslint": "1.2.0",
     "@nuxt/fonts": "0.11.0",
@@ -24,7 +25,6 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9.0.0",
     "jsdoc": "^4.0.4",
-    "lucide-vue-next": "^0.525.0",
     "nuxt": "^3.16.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.1",
