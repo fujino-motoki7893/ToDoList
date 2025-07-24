@@ -23,10 +23,6 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  app: {
-    baseURL: '/portfolio/',
-  },
-
   css: ['~/assets/css/main.css'],
 
   runtimeConfig: {
