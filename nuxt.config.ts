@@ -62,6 +62,9 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      include: ['@iconify/vue'],
+    },
   },
 
   apollo: {

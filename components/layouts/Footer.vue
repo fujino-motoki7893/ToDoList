@@ -31,14 +31,21 @@
           href="https://x.com/motoki_f_7893"
           class="w-18 h-18 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 text-[48px]"
         >
-          X
+          <Icon
+            icon="fa7-brands:square-x-twitter"
+            width="48"
+            height="48"
+            color="white"
+          />
         </a>
         <a
           href="https://github.com/fujino-motoki7893"
           class="w-18 h-18 bg-black rounded-full flex items-center justify-center hover:bg-gray-800"
         >
-          <Github
-            :size="48"
+          <Icon
+            icon="mdi:github"
+            width="48"
+            height="48"
             color="white"
           />
         </a>
@@ -48,5 +55,5 @@
 </template>
 
 <script setup lang="ts">
-import { Github } from 'lucide-vue-next'
+import { Icon } from '@iconify/vue'
 </script>
