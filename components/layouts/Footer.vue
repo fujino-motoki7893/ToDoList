@@ -18,13 +18,20 @@
     </div>
     <div class="flex flex-col py-8">
       <nav class="flex text-[36px] space-x-12 items-end justify-end pr-18">
-        <a
-          href="/"
+        <NuxtLink
+          to="/"
           class="hover:text-gray-300"
-        >HOME</a>
-        <a
+          :class="{ '': $route.path === '/' }"
+        >
+          HOME
+        </NuxtLink>
+        <NuxtLink
+          to="/about"
           class="hover:text-gray-300"
-        >ABOUT ME</a>
+          :class="{ '': $route.path === '/about' }"
+        >
+          ABOUT ME
+        </NuxtLink>
       </nav>
       <nav class="flex space-x-12 items-end justify-end pr-24 pt-16">
         <a

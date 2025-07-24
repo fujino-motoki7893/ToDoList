@@ -5,14 +5,21 @@
         motokifujino.com
       </span>
       <nav class="text-[20px] text-gray-600 space-x-12">
-        <a
-          href="/"
+        <NuxtLink
+          to="/"
           class="hover:text-blue-600"
-        >HOME</a>
+          :class="{ 'text-blue-600': $route.path === '/' }"
+        >
+          HOME
+        </NuxtLink>
         <a class="w-[1px] h-[24px] x-6 bg-gray-300 absolute mx-[-24px] my-[4px]" />
-        <a
+        <NuxtLink
+          to="/about"
           class="hover:text-blue-600"
-        >ABOUT ME</a>
+          :class="{ 'text-blue-600': $route.path === '/about' }"
+        >
+          ABOUT ME
+        </NuxtLink>
       </nav>
     </span>
   </div>
