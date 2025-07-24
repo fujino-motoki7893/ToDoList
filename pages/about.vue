@@ -26,13 +26,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-// ページのメタ情報を設定
-useHead({
-  title: 'About Me - motokifujino.com',
-  meta: [
-    { name: 'description', content: 'About Motoki Fujino' },
-  ],
-})
-</script>
