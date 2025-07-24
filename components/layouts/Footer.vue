@@ -31,19 +31,14 @@
           href="https://x.com/motoki_f_7893"
           class="w-18 h-18 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 text-[48px]"
         >
-          <Icon
-            icon="fa7-brands:square-x-twitter"
-            width="48"
-            height="48"
-            color="white"
-          />
+          X
         </a>
         <a
           href="https://github.com/fujino-motoki7893"
           class="w-18 h-18 bg-black rounded-full flex items-center justify-center hover:bg-gray-800"
         >
           <Icon
-            icon="mdi:github"
+            :icon="githubIcon"
             width="48"
             height="48"
             color="white"
@@ -55,5 +50,6 @@
 </template>
 
 <script setup lang="ts">
+import githubIcon from '@iconify-icons/mdi/github'
 import { Icon } from '@iconify/vue'
 </script>
