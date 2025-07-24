@@ -42,7 +42,7 @@
       class="w-[531px]"
     />
     <div class="flex items-center">
-      <span class="w-[1389px] text-[20px] px-[172px]">
+      <span class="min-w-[1389px] text-[20px] px-[172px]">
         <div class="flex font-bold text-[32px] justify-center py-16">
           モダンフロントエンド技術
         </div>
@@ -60,9 +60,9 @@
       </span>
     </div>
   </div>
-  <div class="flex justify-left w-full h-200">
+  <div class="flex justify-right w-full h-200">
     <div class="flex items-center">
-      <span class="w-[1389px] text-[20px] px-[172px]">
+      <span class="min-w-[1389px] text-[20px] px-[172px]">
         <div class="flex font-bold text-[32px] justify-center py-16">
           クラウド技術
         </div>
