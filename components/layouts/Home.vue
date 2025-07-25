@@ -45,13 +45,26 @@
         </div>
       </div>
 
-      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div
+        class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-3
+      bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full"
+      >
         <div
           v-for="(slide, index) in totalSlides"
           :key="index"
-          class="w-3 h-3 rounded-full transition-colors duration-300"
-          :class="getIndicatorIndex() === index ? 'bg-white' : 'bg-white/50'"
-        />
+          class="relative transition-all duration-300 ease-out cursor-pointer"
+          :class="getIndicatorIndex() === index ? 'w-8 h-3' : 'w-3 h-3'"
+          @click="goToSlide(index)"
+        >
+          <div
+            v-if="getIndicatorIndex() === index"
+            class="w-full h-full bg-white rounded-full shadow-lg"
+          />
+          <div
+            v-else
+            class="w-full h-full bg-white/60 rounded-full hover:bg-white/80 transition-colors duration-200"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -163,6 +176,19 @@ const totalSlides = 3
 const totalSlidesWithClones = 5
 let slideInterval = null
 let isTransitioning = false
+
+const goToSlide = (targetIndex) => {
+  if (isTransitioning) return
+
+  stopSlideshow()
+
+  isTransitioning = true
+  currentSlide.value = targetIndex + 1
+
+  setTimeout(() => {
+    startSlideshow()
+  }, 3000)
+}
 
 const getIndicatorIndex = () => {
   if (currentSlide.value === 0) return 2
