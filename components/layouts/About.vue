@@ -1,16 +1,25 @@
 <template>
   <div>
     <div class="flex h-200">
-      <div class="flex px-57.5 w-240 items-center">
+      <div
+        ref="profileImageSection"
+        class="flex px-57.5 w-240 items-center opacity-0 transition-all
+        duration-1000 ease-out transform translate-x-[-30px]"
+        :class="{ 'opacity-100 translate-x-0': isProfileImageVisible }"
+      >
         <NuxtImg
           provider="s3"
           src="/images/fujino_ago.jpg"
           alt="藤野元規"
-          class="w-125 h-125"
+          class="w-125 h-125 transform transition-all duration-500 hover:scale-105"
         />
       </div>
-      <div class="flex flex-col py-25 w-240">
-        <div class="text-[40px]">
+      <div
+        ref="profileTextSection"
+        class="flex flex-col py-25 w-240 opacity-0 transition-all duration-1000 ease-out transform translate-x-[30px]"
+        :class="{ 'opacity-100 translate-x-0': isProfileTextVisible }"
+      >
+        <div class="text-[40px] opacity-0 animate-name-fade">
           藤野 元規
           <span class="p-4">
             MOTOKI
@@ -44,10 +53,20 @@
       </div>
     </div>
     <div class="flex h-[566px]">
-      <div class="text-[40px] w-[418px] flex justify-center font-bold px-16">
+      <div
+        ref="importantTitleSection"
+        class="text-[40px] w-[418px] flex justify-center font-bold px-16 opacity-0 transition-all
+        duration-1000 ease-out transform translate-x-[-30px]"
+        :class="{ 'opacity-100 translate-x-0': isImportantTitleVisible }"
+      >
         たいせつなこと
       </div>
-      <div class="flex flex-col w-[1438px] leading-[1.67] tracking-[4px] pr-16 text-[20px]">
+      <div
+        ref="importantContentSection"
+        class="flex flex-col w-[1438px] leading-[1.67] tracking-[4px] pr-16 text-[20px] opacity-0 transition-all
+        duration-1000 ease-out transform translate-x-[-30px]"
+        :class="{ 'opacity-100 translate-x-0': isImportantContentVisible }"
+      >
         <div class="font-bold">
           <span class="flex text-[24px]">
             1. 共同が生み出す、一人を超えた価値
@@ -97,10 +116,20 @@
     </div>
     <div class="p-16" />
     <div class="flex">
-      <div class="text-[40px] w-[418px] flex justify-center font-bold px-16">
+      <div
+        ref="techTitleSection"
+        class="text-[40px] w-[418px] flex justify-center font-bold px-16 opacity-0 transition-all
+        duration-1000 ease-out transform translate-x-[-30px]"
+        :class="{ 'opacity-100 translate-x-0': isTechTitleVisible }"
+      >
         技術スタック
       </div>
-      <div class="flex flex-col w-[1438px] pr-16 pt-4 text-[20px] tracking-[2px]">
+      <div
+        ref="techContentSection"
+        class="flex flex-col w-[1438px] pr-16 pt-4 text-[20px] tracking-[2px] opacity-0 transition-all
+        duration-1000 ease-out transform translate-x-[-30px]"
+        :class="{ 'opacity-100 translate-x-0': isTechContentVisible }"
+      >
         <div class="flex">
           <span class="font-bold w-[198px] text-[24px]">
             フロントエンド...
@@ -134,9 +163,143 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import {
   MessageSquare,
   UserRound,
   Lightbulb,
 } from 'lucide-vue-next'
+
+// 各セクションの参照
+const profileImageSection = ref(null)
+const profileTextSection = ref(null)
+const importantTitleSection = ref(null)
+const importantContentSection = ref(null)
+const techTitleSection = ref(null)
+const techContentSection = ref(null)
+
+// 表示状態の管理
+const isProfileImageVisible = ref(false)
+const isProfileTextVisible = ref(false)
+const isImportantTitleVisible = ref(false)
+const isImportantContentVisible = ref(false)
+const isTechTitleVisible = ref(false)
+const isTechContentVisible = ref(false)
+
+// Intersection Observer
+const observerOptions = {
+  threshold: 0.2,
+  rootMargin: '0px 0px -50px 0px',
+}
+
+let observer = null
+
+onMounted(() => {
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target === profileImageSection.value) {
+          isProfileImageVisible.value = true
+        }
+        else if (entry.target === profileTextSection.value) {
+          isProfileTextVisible.value = true
+        }
+        else if (entry.target === importantTitleSection.value) {
+          isImportantTitleVisible.value = true
+        }
+        else if (entry.target === importantContentSection.value) {
+          isImportantContentVisible.value = true
+        }
+        else if (entry.target === techTitleSection.value) {
+          isTechTitleVisible.value = true
+        }
+        else if (entry.target === techContentSection.value) {
+          isTechContentVisible.value = true
+        }
+      }
+    })
+  }, observerOptions)
+
+  if (profileImageSection.value) observer.observe(profileImageSection.value)
+  if (profileTextSection.value) observer.observe(profileTextSection.value)
+  if (importantTitleSection.value) observer.observe(importantTitleSection.value)
+  if (importantContentSection.value) observer.observe(importantContentSection.value)
+  if (techTitleSection.value) observer.observe(techTitleSection.value)
+  if (techContentSection.value) observer.observe(techContentSection.value)
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
+
+<style scoped>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 名前のフェードイン */
+.animate-name-fade {
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+/* プロフィールテキストの段階的フェードイン */
+.animate-text-fade-1 {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.animate-text-fade-2 {
+  animation: fadeInUp 0.6s ease-out 0.8s forwards;
+}
+
+.animate-text-fade-3 {
+  animation: fadeInUp 0.6s ease-out 1.0s forwards;
+}
+
+.animate-text-fade-4 {
+  animation: fadeInUp 0.6s ease-out 1.2s forwards;
+}
+
+.animate-text-fade-5 {
+  animation: fadeInUp 0.6s ease-out 1.4s forwards;
+}
+
+.animate-text-fade-6 {
+  animation: fadeInUp 0.6s ease-out 1.6s forwards;
+}
+
+/* たいせつなことセクション */
+.animate-important-1 {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.animate-important-2 {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.animate-important-3 {
+  animation: fadeInUp 0.6s ease-out 0.9s forwards;
+}
+
+/* 技術スタックセクション */
+.animate-tech-1 {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.animate-tech-2 {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.animate-tech-3 {
+  animation: fadeInUp 0.6s ease-out 0.9s forwards;
+}
+</style>

@@ -4,10 +4,14 @@
       provider="s3"
       src="/images/think_fujino_edit.jpg"
       alt="藤野元規"
-      class="w-320 h-[634px]"
+      class="w-320 h-[634px] opacity-0 animate-fade-in"
     />
   </div>
-  <div class="justify-center flex py-16">
+  <div
+    ref="textSection"
+    class="justify-center flex py-16 opacity-0 transition-all duration-1000 ease-out transform translate-y-8"
+    :class="{ 'opacity-100 translate-y-0': isTextVisible }"
+  >
     <span class="w-202 text-4">
       <p class="pb-5">
         はじめまして。藤野 元規と申します。当ポートフォリオをご覧いただき、ありがとうございます。
@@ -34,7 +38,11 @@
       </p>
     </span>
   </div>
-  <div class="flex justify-left w-full h-200">
+  <div
+    ref="frontendSection"
+    class="flex justify-left w-full h-200 opacity-0 transition-all duration-1000 ease-out transform translate-x-[-50px]"
+    :class="{ 'opacity-100 translate-x-0': isFrontendVisible }"
+  >
     <NuxtImg
       provider="s3"
       src="/images/town-cut.png"
@@ -60,7 +68,11 @@
       </span>
     </div>
   </div>
-  <div class="flex justify-right w-full h-200">
+  <div
+    ref="cloudSection"
+    class="flex justify-right w-full h-200 opacity-0 transition-all duration-1000 ease-out transform translate-x-[50px]"
+    :class="{ 'opacity-100 translate-x-0': isCloudVisible }"
+  >
     <div class="flex items-center">
       <span class="min-w-[1389px] text-[20px] px-[172px]">
         <div class="flex font-bold text-[32px] justify-center py-16">
@@ -87,3 +99,68 @@
     />
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const textSection = ref(null)
+const frontendSection = ref(null)
+const cloudSection = ref(null)
+
+const isTextVisible = ref(false)
+const isFrontendVisible = ref(false)
+const isCloudVisible = ref(false)
+
+const observerOptions = {
+  threshold: 0.3,
+  rootMargin: '0px 0px -50px 0px',
+}
+
+let observer = null
+
+onMounted(() => {
+  // Intersection Observerを使用してスクロール時のアニメーションを実装
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target === textSection.value) {
+          isTextVisible.value = true
+        }
+        else if (entry.target === frontendSection.value) {
+          isFrontendVisible.value = true
+        }
+        else if (entry.target === cloudSection.value) {
+          isCloudVisible.value = true
+        }
+      }
+    })
+  }, observerOptions)
+
+  if (textSection.value) observer.observe(textSection.value)
+  if (frontendSection.value) observer.observe(frontendSection.value)
+  if (cloudSection.value) observer.observe(cloudSection.value)
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
+</script>
+
+<style scoped>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+</style>
