@@ -11,9 +11,9 @@
           class="underline hover:text-gray-300"
         >motoki fujino</a>, Icons by
         <a
-          href="https://icons8.com/"
+          href="https://lucide.dev/"
           class="underline hover:text-gray-300"
-        >Icons8</a>.
+        >Lucide</a>.
       </p>
     </div>
     <div class="flex flex-col py-8">
