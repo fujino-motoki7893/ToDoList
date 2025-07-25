@@ -1,11 +1,59 @@
 <template>
-  <div class="flex justify-center">
-    <NuxtImg
-      provider="s3"
-      src="/images/think_fujino_edit.jpg"
-      alt="藤野元規"
-      class="w-320 h-[634px] opacity-0 animate-fade-in"
-    />
+  <div class="flex justify-center relative overflow-hidden">
+    <div class="relative w-320 h-[634px]">
+      <div
+        ref="slideContainer"
+        class="flex transition-transform duration-1000 ease-in-out"
+        :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
+      >
+        <div class="min-w-full">
+          <NuxtImg
+            provider="s3"
+            src="/images/argo-archi.png"
+            class="w-320 h-[634px] opacity-0 animate-fade-in"
+          />
+        </div>
+
+        <div class="min-w-full">
+          <NuxtImg
+            provider="s3"
+            src="/images/think_fujino_edit.jpg"
+            class="w-320 h-[634px] opacity-0 animate-fade-in"
+          />
+        </div>
+        <div class="min-w-full">
+          <NuxtImg
+            provider="s3"
+            src="images/スライド1_調整.PNG"
+            class="w-320 h-[634px] opacity-0 animate-fade-in"
+          />
+        </div>
+        <div class="min-w-full">
+          <NuxtImg
+            provider="s3"
+            src="/images/argo-archi.png"
+            class="w-320 h-[634px] opacity-0 animate-fade-in"
+          />
+        </div>
+
+        <div class="min-w-full">
+          <NuxtImg
+            provider="s3"
+            src="/images/think_fujino_edit.jpg"
+            class="w-320 h-[634px] opacity-0 animate-fade-in"
+          />
+        </div>
+      </div>
+
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div
+          v-for="(slide, index) in totalSlides"
+          :key="index"
+          class="w-3 h-3 rounded-full transition-colors duration-300"
+          :class="getIndicatorIndex() === index ? 'bg-white' : 'bg-white/50'"
+        />
+      </div>
+    </div>
   </div>
   <div
     ref="textSection"
@@ -46,7 +94,6 @@
     <NuxtImg
       provider="s3"
       src="/images/town-cut.png"
-      alt="藤野元規"
       class="w-[531px]"
     />
     <div class="flex items-center">
@@ -94,7 +141,6 @@
     <NuxtImg
       provider="s3"
       src="/images/cloud_edit.jpg"
-      alt="藤野元規"
       class="w-[531px]"
     />
   </div>
@@ -111,40 +157,104 @@ const isTextVisible = ref(false)
 const isFrontendVisible = ref(false)
 const isCloudVisible = ref(false)
 
-const observerOptions = {
-  threshold: 0.3,
-  rootMargin: '0px 0px -50px 0px',
+const slideContainer = ref(null)
+const currentSlide = ref(1)
+const totalSlides = 3
+const totalSlidesWithClones = 5
+let slideInterval = null
+let isTransitioning = false
+
+const getIndicatorIndex = () => {
+  if (currentSlide.value === 0) return 2
+  if (currentSlide.value === 4) return 0
+  return currentSlide.value - 1
 }
 
-let observer = null
+const handleTransitionEnd = () => {
+  if (!isTransitioning) return
 
-onMounted(() => {
-  // Intersection Observerを使用してスクロール時のアニメーションを実装
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
+  if (currentSlide.value === totalSlidesWithClones - 1) {
+    slideContainer.value.style.transition = 'none'
+    currentSlide.value = 1
+    nextTick(() => {
+      slideContainer.value.style.transition = 'transform 1000ms ease-in-out'
+    })
+  }
+  else if (currentSlide.value === 0) {
+    slideContainer.value.style.transition = 'none'
+    currentSlide.value = totalSlides
+    nextTick(() => {
+      slideContainer.value.style.transition = 'transform 1000ms ease-in-out'
+    })
+  }
+
+  isTransitioning = false
+}
+
+const nextSlide = () => {
+  if (isTransitioning) return
+
+  isTransitioning = true
+  currentSlide.value++
+}
+
+const startSlideshow = () => {
+  slideInterval = setInterval(() => {
+    nextSlide()
+  }, 3000)
+}
+
+const stopSlideshow = () => {
+  if (slideInterval) {
+    clearInterval(slideInterval)
+    slideInterval = null
+  }
+}
+
+const setupIntersectionObserver = () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.target === textSection.value) {
-          isTextVisible.value = true
+          isTextVisible.value = entry.isIntersecting
         }
         else if (entry.target === frontendSection.value) {
-          isFrontendVisible.value = true
+          isFrontendVisible.value = entry.isIntersecting
         }
         else if (entry.target === cloudSection.value) {
-          isCloudVisible.value = true
+          isCloudVisible.value = entry.isIntersecting
         }
-      }
-    })
-  }, observerOptions)
+      })
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px',
+    },
+  )
 
   if (textSection.value) observer.observe(textSection.value)
   if (frontendSection.value) observer.observe(frontendSection.value)
   if (cloudSection.value) observer.observe(cloudSection.value)
-})
 
-onUnmounted(() => {
-  if (observer) {
-    observer.disconnect()
+  return observer
+}
+
+onMounted(() => {
+  if (slideContainer.value) {
+    slideContainer.value.addEventListener('transitionend', handleTransitionEnd)
   }
+
+  startSlideshow()
+
+  const observer = setupIntersectionObserver()
+
+  onUnmounted(() => {
+    stopSlideshow()
+    if (slideContainer.value) {
+      slideContainer.value.removeEventListener('transitionend', handleTransitionEnd)
+    }
+    observer.disconnect()
+  })
 })
 </script>
 
