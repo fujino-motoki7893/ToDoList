@@ -124,7 +124,7 @@
           <p class="pb-8 w-[1220px]">
             GraphQL, PostgreSQL, A5:SQL Mk-2, DBeaver, Azure（DevOps Services, Front Door, SQL Database,
             Virtual Machines, Container Registry, Kubernetes Services, Functions）, AWS（Lambda, Cloud Watch,
-            S3, Cloudfront, API Gateway,RDS,DynamoDB） , GitOps, GitHub, Grafana, Google Analytics,
+            S3, Cloudfront, API Gateway, RDS, DynamoDB） , GitOps, GitHub, Grafana, Google Analytics,
           </p>
         </div>
       </div>
