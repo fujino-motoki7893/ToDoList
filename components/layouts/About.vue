@@ -100,7 +100,7 @@
       <div class="text-[40px] w-[418px] flex justify-center font-bold px-16">
         技術スタック
       </div>
-      <div class="flex flex-col w-[1438px] pr-16 text-[24px] tracking-[4px]">
+      <div class="flex flex-col w-[1438px] pr-16 text-[24px] tracking-[2px]">
         <p class="font-normal pb-5">
           言語、フレームワーク、ツール、設計思想などをごちゃまぜにしちゃっています。見にくかったらすみません
         </p>
